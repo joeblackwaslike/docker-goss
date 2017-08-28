@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $1 == 'liveness' ]]; then
+    gossfile=liveness.yaml
+    port=8081
+else
+    gossfile=readiness.yaml
+    port=8080
+fi
+
+args=(-g /goss/$gossfile serve -l ":$port" "${@:2}")
+
+set -- ${args[@]}
+
+exec goss "$@"

@@ -10,4 +10,8 @@ RUN apk add --no-cache --virtual=goss-dependencies curl ca-certificates && \
     curl -fsSL https://goss.rocks/install | sh && \
     apk del goss-dependencies
 
+COPY healthz /usr/local/bin/
+
 VOLUME /goss
+
+CMD ["goss"]
