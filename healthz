@@ -8,6 +8,6 @@ else
     port=8080
 fi
 
-set -- -g /goss/$gossfile serve -l ":$port" "${@:2}"
+set -- -g /goss/$gossfile serve -l ":$port" -f json "${@:2}"
 
 exec goss "$@"
